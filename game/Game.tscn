@@ -1,30 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Creature1.gd" type="Script" id=1]
-
-[sub_resource type="PhysicsMaterial" id=4]
-bounce = 1.0
-
-[sub_resource type="CircleShape2D" id=1]
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 1, 540 )
+[ext_resource path="res://game/Game.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 1, 540 )
+
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 360, 1 )
 
 [node name="Game" type="Node2D"]
-
-[node name="Creature1" type="RigidBody2D" parent="."]
-position = Vector2( 362.857, 511.528 )
-physics_material_override = SubResource( 4 )
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Creature1CollisionShape" type="CollisionShape2D" parent="Creature1"]
-shape = SubResource( 1 )
 
 [node name="Bounds" type="Node2D" parent="."]
 
@@ -32,22 +17,22 @@ shape = SubResource( 1 )
 position = Vector2( 720, 540 )
 
 [node name="RightWallCollisionShape" type="CollisionShape2D" parent="Bounds/RightWall"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="LeftWall" type="StaticBody2D" parent="Bounds"]
 position = Vector2( 0, 540 )
 
 [node name="LeftWallCollisionShape" type="CollisionShape2D" parent="Bounds/LeftWall"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="LowerWall" type="StaticBody2D" parent="Bounds"]
 position = Vector2( 360, 1080 )
 
 [node name="LowerWallCollisionShape" type="CollisionShape2D" parent="Bounds/LowerWall"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="UpperWall" type="StaticBody2D" parent="Bounds"]
 position = Vector2( 360, 0 )
 
 [node name="UpperWallCollisionShape" type="CollisionShape2D" parent="Bounds/UpperWall"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
