@@ -13,11 +13,17 @@ var num_of_creature_2 : int = 5
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for n in num_of_creature_1:
-		var creature_1_instance : RigidBody2D = CREATURE_1.instance()
+		var creature_1_instance = CREATURE_1.instance()
+		var damage = 0.0
+		creature_1_instance.connect("creature_wall_collision", self, "_handle_creature_wall_collision")
 		self.add_child(creature_1_instance)
 	for n in num_of_creature_2:
 		var creature_2_instance : RigidBody2D = CREATURE_2.instance()
 		self.add_child(creature_2_instance)
+
+
+func _handle_creature_wall_collision(damage):
+	$Beaker.apply_damage(damage)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

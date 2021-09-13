@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+signal creature_wall_collision(damage)
+
 # Notes:
 # https://godotengine.org/qa/88082/rigidbody-physics-extremily-inconsistent
 # https://github.com/godotengine/godot/issues/16113
@@ -45,3 +47,8 @@ func _integrate_forces(state):
 #		print("%s , %s" % [rand_x_pos, rand_y_pos])
 		state.transform = Transform2D(0, Vector2(rand_x,rand_y))
 		is_start_pos_set = true
+
+
+func _on_Creature1_body_entered(body):
+#	print("Collision: %s" % body)
+	emit_signal("creature_wall_collision", 1.0)

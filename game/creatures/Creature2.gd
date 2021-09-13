@@ -45,3 +45,8 @@ func _integrate_forces(state):
 #		print("%s , %s" % [rand_x_pos, rand_y_pos])
 		state.transform = Transform2D(0, Vector2(rand_x,rand_y))
 		is_start_pos_set = true
+
+
+func _on_Creature2_body_entered(body):
+#	print(body)
+	pass

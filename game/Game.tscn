@@ -1,38 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://game/Game.gd" type="Script" id=1]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 1, 405 )
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 270, 1 )
+[ext_resource path="res://game/Beaker.tscn" type="PackedScene" id=2]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="Bounds" type="Node2D" parent="."]
-
-[node name="RightWall" type="StaticBody2D" parent="Bounds"]
-position = Vector2( 630, 540 )
-
-[node name="RightWallCollisionShape" type="CollisionShape2D" parent="Bounds/RightWall"]
-shape = SubResource( 1 )
-
-[node name="LeftWall" type="StaticBody2D" parent="Bounds"]
-position = Vector2( 90, 540 )
-
-[node name="LeftWallCollisionShape" type="CollisionShape2D" parent="Bounds/LeftWall"]
-shape = SubResource( 1 )
-
-[node name="LowerWall" type="StaticBody2D" parent="Bounds"]
-position = Vector2( 360, 945 )
-
-[node name="LowerWallCollisionShape" type="CollisionShape2D" parent="Bounds/LowerWall"]
-shape = SubResource( 2 )
-
-[node name="UpperWall" type="StaticBody2D" parent="Bounds"]
-position = Vector2( 360, 135 )
-
-[node name="UpperWallCollisionShape" type="CollisionShape2D" parent="Bounds/UpperWall"]
-shape = SubResource( 2 )
+[node name="Beaker" parent="." instance=ExtResource( 2 )]
