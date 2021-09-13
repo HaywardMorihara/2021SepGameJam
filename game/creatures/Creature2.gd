@@ -14,6 +14,7 @@ export var speed : float
 
 var is_start_pos_set : bool = false
 
+var rng = RandomNumberGenerator.new()
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -22,7 +23,7 @@ var is_start_pos_set : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	randomize()
+	rng.randomize()
 	var v : Vector2 = Vector2(0,speed).rotated(randf() * 2.0 * PI)
 	self.set_linear_velocity(v)
 
@@ -34,13 +35,13 @@ func _process(delta):
 	
 func _integrate_forces(state):
 	if not is_start_pos_set:
-		var x_bound : float = get_viewport_rect().size.x
-		var y_bound : float = get_viewport_rect().size.y
-		var rand_x : float = randf()
-		var rand_y : float = randf()
+#		var x_bound : float = get_viewport_rect().size.x
+#		var y_bound : float = get_viewport_rect().size.y
+		var rand_x : float = rng.randf_range(90.0, 630.0)
+		var rand_y : float = rng.randf_range(135.0, 945.0)
 #		print("%s, %s" % [rand_x, rand_y])
-		var rand_x_pos : float  = x_bound * rand_x
-		var rand_y_pos : float = y_bound * rand_y
+#		var rand_x_pos : float  = x_bound * rand_x
+#		var rand_y_pos : float = y_bound * rand_y
 #		print("%s , %s" % [rand_x_pos, rand_y_pos])
-		state.transform = Transform2D(0, Vector2(rand_x_pos,rand_y_pos))
+		state.transform = Transform2D(0, Vector2(rand_x,rand_y))
 		is_start_pos_set = true
