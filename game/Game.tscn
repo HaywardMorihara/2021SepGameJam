@@ -2,10 +2,10 @@
 
 [ext_resource path="res://game/Game.gd" type="Script" id=1]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1, 540 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 360, 1 )
 
 [node name="Game" type="Node2D"]
@@ -17,22 +17,22 @@ script = ExtResource( 1 )
 position = Vector2( 720, 540 )
 
 [node name="RightWallCollisionShape" type="CollisionShape2D" parent="Bounds/RightWall"]
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="LeftWall" type="StaticBody2D" parent="Bounds"]
 position = Vector2( 0, 540 )
 
 [node name="LeftWallCollisionShape" type="CollisionShape2D" parent="Bounds/LeftWall"]
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="LowerWall" type="StaticBody2D" parent="Bounds"]
 position = Vector2( 360, 1080 )
 
 [node name="LowerWallCollisionShape" type="CollisionShape2D" parent="Bounds/LowerWall"]
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="UpperWall" type="StaticBody2D" parent="Bounds"]
 position = Vector2( 360, 0 )
 
 [node name="UpperWallCollisionShape" type="CollisionShape2D" parent="Bounds/UpperWall"]
-shape = SubResource( 4 )
+shape = SubResource( 2 )
