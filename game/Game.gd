@@ -1,10 +1,10 @@
 extends Node2D
 
-const CREATURE_1 = preload("res://game/creatures/Creature1.tscn")
-const CREATURE_2 = preload("res://game/creatures/Creature2.tscn")
+const CREATURE_SMALL = preload("res://game/creatures/CreatureSmall.tscn")
+const CREATURE_LARGE = preload("res://game/creatures/CreatureLarge.tscn")
 
-var num_of_creature_1 : int = 10
-var num_of_creature_2 : int = 5
+var num_of_creature_small : int = 10
+var num_of_creature_large : int = 5
 
 enum GameState {PLAYING, WON}
 var current_state = GameState.PLAYING
@@ -40,15 +40,14 @@ func _reset_game():
 	$Message.hide()
 	$Beaker.current_health = $Beaker.starting_health
 	get_tree().call_group("creatures", "queue_free")
-	for n in num_of_creature_1:
-		var creature_1_instance = CREATURE_1.instance()
-		creature_1_instance.add_to_group("creatures")
-		creature_1_instance.connect("creature_wall_collision", self, "_handle_creature_wall_collision")
-		self.add_child(creature_1_instance)
-	for n in num_of_creature_2:
-		var creature_2_instance : RigidBody2D = CREATURE_2.instance()
-		creature_2_instance.add_to_group("creatures")
-		self.add_child(creature_2_instance)
+	for n in num_of_creature_small:
+		var creature_instance : RigidBody2D = CREATURE_SMALL.instance()
+		creature_instance.add_to_group("creatures")
+		self.add_child(creature_instance)
+	for n in num_of_creature_large:
+		var creature_instance : RigidBody2D = CREATURE_LARGE.instance()
+		creature_instance.add_to_group("creatures")
+		self.add_child(creature_instance)
 		
 		
 func _handle_creature_wall_collision(damage):
