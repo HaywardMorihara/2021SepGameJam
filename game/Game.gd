@@ -5,12 +5,10 @@ const CREATURE_2 = preload("res://game/creatures/Creature2.tscn")
 
 var num_of_creature_1 : int = 10
 var num_of_creature_2 : int = 5
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 
+enum GameState {PLAYING, WON}
+var current_state = GameState.PLAYING
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	for n in num_of_creature_1:
 		var creature_1_instance = CREATURE_1.instance()
@@ -25,7 +23,11 @@ func _ready():
 func _handle_creature_wall_collision(damage):
 	$Beaker.apply_damage(damage)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
+func _process(delta):
+	match current_state:
+		GameState.PLAYING:
+			if $Beaker.health <= 0:
+				current_state = GameState.WON
+		GameState.WON:
+			$Message.visible = true
+			$Message.text = "You won!"

@@ -7,3 +7,15 @@
 script = ExtResource( 1 )
 
 [node name="Beaker" parent="." instance=ExtResource( 2 )]
+
+[node name="Message" type="RichTextLabel" parent="."]
+visible = false
+margin_left = 222.887
+margin_top = 457.673
+margin_right = 504.887
+margin_bottom = 549.673
+text = "Custom Message"
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
