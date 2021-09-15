@@ -2,9 +2,11 @@ extends Node2D
 
 const CREATURE_SMALL = preload("res://game/creatures/CreatureSmall.tscn")
 const CREATURE_LARGE = preload("res://game/creatures/CreatureLarge.tscn")
+const CREATURE_X = preload("res://game/creatures/CreatureX.tscn")
 
-var num_of_creature_small : int = 10
+var num_of_creature_small : int = 5
 var num_of_creature_large : int = 5
+var num_of_creature_x : int = 5
 
 enum GameState {PLAYING, WON}
 var current_state = GameState.PLAYING
@@ -38,6 +40,7 @@ func _input(event):
 func _create_creatures(creature_scene, number : int):
 	for n in number:
 		var creature_instance : RigidBody2D = creature_scene.instance()
+		creature_instance.connect("creature_wall_collision", self, "_handle_creature_wall_collision")
 		creature_instance.add_to_group("creatures")
 		self.add_child(creature_instance)
 
@@ -49,6 +52,7 @@ func _reset_game():
 	get_tree().call_group("creatures", "queue_free")
 	_create_creatures(CREATURE_SMALL, num_of_creature_small)		
 	_create_creatures(CREATURE_LARGE, num_of_creature_large)
+	_create_creatures(CREATURE_X, num_of_creature_x)
 		
 		
 func _handle_creature_wall_collision(damage):

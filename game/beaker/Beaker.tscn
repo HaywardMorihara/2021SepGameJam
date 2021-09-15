@@ -11,6 +11,7 @@ extents = Vector2( 270, 1 )
 
 [node name="Beaker" type="Node2D"]
 script = ExtResource( 1 )
+starting_health = 1000.0
 
 [node name="RightWall" type="StaticBody2D" parent="."]
 position = Vector2( 630, 540 )

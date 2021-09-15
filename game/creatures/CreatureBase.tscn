@@ -1,15 +1,12 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://game/creatures/CreatureBase.gd" type="Script" id=1]
+[ext_resource path="res://game/creatures/physics_materials/CreatureBase.tres" type="PhysicsMaterial" id=2]
 
-[sub_resource type="PhysicsMaterial" id=2]
-friction = 0.0
-bounce = 1.0
-
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=2]
 
 [node name="CreatureRigidBody2D" type="RigidBody2D"]
-physics_material_override = SubResource( 2 )
+physics_material_override = ExtResource( 2 )
 continuous_cd = 1
 contacts_reported = 1
 contact_monitor = true
@@ -19,6 +16,6 @@ script = ExtResource( 1 )
 speed = 100.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [connection signal="body_entered" from="." to="." method="_on_Creature_body_entered"]
