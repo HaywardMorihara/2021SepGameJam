@@ -35,19 +35,20 @@ func _input(event):
 				_reset_game()
 
 
+func _create_creatures(creature_scene, number : int):
+	for n in number:
+		var creature_instance : RigidBody2D = creature_scene.instance()
+		creature_instance.add_to_group("creatures")
+		self.add_child(creature_instance)
+
+
 func _reset_game():
 	current_state = GameState.PLAYING
 	$Message.hide()
 	$Beaker.current_health = $Beaker.starting_health
 	get_tree().call_group("creatures", "queue_free")
-	for n in num_of_creature_small:
-		var creature_instance : RigidBody2D = CREATURE_SMALL.instance()
-		creature_instance.add_to_group("creatures")
-		self.add_child(creature_instance)
-	for n in num_of_creature_large:
-		var creature_instance : RigidBody2D = CREATURE_LARGE.instance()
-		creature_instance.add_to_group("creatures")
-		self.add_child(creature_instance)
+	_create_creatures(CREATURE_SMALL, num_of_creature_small)		
+	_create_creatures(CREATURE_LARGE, num_of_creature_large)
 		
 		
 func _handle_creature_wall_collision(damage):
