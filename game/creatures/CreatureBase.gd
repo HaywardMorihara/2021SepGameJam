@@ -28,6 +28,7 @@ func _ready():
 	rng.randomize()
 	var v : Vector2 = Vector2(0,speed).rotated(randf() * 2.0 * PI)
 	self.set_linear_velocity(v)
+#	print("set velocity %s" % String(v))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -50,5 +51,7 @@ func _integrate_forces(state):
 
 
 func _on_Creature_body_entered(body):
+	# TODO Check if actually the wall
 #	print("Collision: %s" % body)
-	emit_signal("creature_wall_collision", 1.0)
+	if body.is_in_group("walls"):
+		emit_signal("creature_wall_collision", 1.0)

@@ -13,25 +13,33 @@ extents = Vector2( 270, 1 )
 script = ExtResource( 1 )
 starting_health = 1000.0
 
-[node name="RightWall" type="StaticBody2D" parent="."]
+[node name="RightWall" type="StaticBody2D" parent="." groups=[
+"walls",
+]]
 position = Vector2( 630, 540 )
 
 [node name="RightWallCollisionShape" type="CollisionShape2D" parent="RightWall"]
 shape = SubResource( 1 )
 
-[node name="LeftWall" type="StaticBody2D" parent="."]
+[node name="LeftWall" type="StaticBody2D" parent="." groups=[
+"walls",
+]]
 position = Vector2( 90, 540 )
 
 [node name="LeftWallCollisionShape" type="CollisionShape2D" parent="LeftWall"]
 shape = SubResource( 1 )
 
-[node name="LowerWall" type="StaticBody2D" parent="."]
+[node name="LowerWall" type="StaticBody2D" parent="." groups=[
+"walls",
+]]
 position = Vector2( 360, 945 )
 
 [node name="LowerWallCollisionShape" type="CollisionShape2D" parent="LowerWall"]
 shape = SubResource( 2 )
 
-[node name="UpperWall" type="StaticBody2D" parent="."]
+[node name="UpperWall" type="StaticBody2D" parent="." groups=[
+"walls",
+]]
 position = Vector2( 360, 135 )
 
 [node name="UpperWallCollisionShape" type="CollisionShape2D" parent="UpperWall"]

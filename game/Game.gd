@@ -39,7 +39,7 @@ func _input(event):
 
 func _create_creatures(creature_scene, number : int):
 	for n in number:
-		var creature_instance : RigidBody2D = creature_scene.instance()
+		var creature_instance = creature_scene.instance()
 		creature_instance.connect("creature_wall_collision", self, "_handle_creature_wall_collision")
 		creature_instance.add_to_group("creatures")
 		self.add_child(creature_instance)
