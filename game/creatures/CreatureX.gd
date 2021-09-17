@@ -26,6 +26,5 @@ func _on_CreatureX_body_entered(body):
 			var pj = PinJoint2D.new()
 			pj.set_node_a(body.get_path())
 			pj.set_node_b(self.get_path())
-			pj.set_bias(100.0)
 			add_child(pj)
 		num_of_collision += 1

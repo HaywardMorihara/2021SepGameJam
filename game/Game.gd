@@ -4,9 +4,9 @@ const CREATURE_SMALL = preload("res://game/creatures/CreatureSmall.tscn")
 const CREATURE_LARGE = preload("res://game/creatures/CreatureLarge.tscn")
 const CREATURE_X = preload("res://game/creatures/CreatureX.tscn")
 
-var num_of_creature_small : int = 5
+var num_of_creature_small : int = 10
 var num_of_creature_large : int = 5
-var num_of_creature_x : int = 5
+var num_of_creature_x : int = 0
 
 enum GameState {PLAYING, WON}
 var current_state = GameState.PLAYING
@@ -22,19 +22,7 @@ func _process(delta):
 			if $Beaker.current_health <= 0:
 				current_state = GameState.WON
 		GameState.WON:
-			$Message.visible = true
-			$Message.text = "You won!"
-			
-			
-func _input(event):
-	match current_state:
-		GameState.PLAYING:
-			pass
-		GameState.WON:
-			if event is InputEventMouseButton:
-				$Message.hide()
-				current_state = GameState.PLAYING
-				_reset_game()
+			_win()
 
 
 func _create_creatures(creature_scene, number : int):
@@ -45,9 +33,20 @@ func _create_creatures(creature_scene, number : int):
 		self.add_child(creature_instance)
 
 
+func _win():
+	$Message.visible = true
+	$Message.text = "You won!"
+	$RetryButton.show()
+	$ReselectButton.show()
+	$MainMenuButton.show()
+
+
 func _reset_game():
 	current_state = GameState.PLAYING
 	$Message.hide()
+	$RetryButton.hide()
+	$ReselectButton.hide()
+	$MainMenuButton.hide()
 	$Beaker.current_health = $Beaker.starting_health
 	get_tree().call_group("creatures", "queue_free")
 	_create_creatures(CREATURE_SMALL, num_of_creature_small)		
@@ -61,3 +60,15 @@ func _handle_creature_wall_collision(damage):
 			$Beaker.apply_damage(damage)
 		GameState.WON:
 			pass
+
+
+func _on_RetryButton_pressed():
+	get_tree().reload_current_scene()
+
+
+func _on_ReselectButton_pressed():
+	get_tree().change_scene("res://menu/CreatureSelectionMenu.tscn")
+
+
+func _on_MainMenuButton_pressed():
+	get_tree().change_scene("res://menu/MainMenu.tscn")

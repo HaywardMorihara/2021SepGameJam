@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://menu/MainMenu.gd" type="Script" id=1]
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="RichTextLabel" parent="."]
+margin_left = 203.225
+margin_top = 314.776
+margin_right = 510.225
+margin_bottom = 385.776
+text = "Break the Beaker
+"
+
+[node name="StartButton" type="Button" parent="."]
+margin_left = 177.903
+margin_top = 713.196
+margin_right = 479.903
+margin_bottom = 812.196
+text = "Start"
+__meta__ = {
+"_edit_group_": true
+}
+
+[connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
