@@ -50,8 +50,10 @@ mode = 1
 shape = SubResource( 2 )
 
 [node name="HealthLabel" type="RichTextLabel" parent="."]
-margin_right = 100.0
-margin_bottom = 50.0
+margin_left = 80.0
+margin_top = 76.0
+margin_right = 180.0
+margin_bottom = 126.0
 text = "100"
 script = ExtResource( 2 )
 __meta__ = {
