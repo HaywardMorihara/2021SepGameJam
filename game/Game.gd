@@ -29,20 +29,22 @@ func _create_creatures(creature_scene, number : int):
 		self.add_child(creature_instance)
 
 
-func _win():
+func _stop_game():
+	$Timer.paused = true
 	$Message.visible = true
-	$Message.text = "You won!"
 	$RetryButton.show()
 	$ReselectButton.show()
 	$MainMenuButton.show()
+
+func _win():
+	$Beaker.break_the_beaker()
+	$Message.text = "You won!"
+	_stop_game()
 	
 
 func _lose():
-	$Message.visible = true
 	$Message.text = "You lose!"
-	$RetryButton.show()
-	$ReselectButton.show()
-	$MainMenuButton.show()
+	_stop_game()
 
 
 func _reset_game():

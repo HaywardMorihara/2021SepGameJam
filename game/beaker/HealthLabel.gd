@@ -10,4 +10,4 @@ func _ready():
 #	self.text = String(health)
 
 func set_health(health : float):
-	self.text = String(health)
+	self.text = "Beaker Health: %s" % String(health)

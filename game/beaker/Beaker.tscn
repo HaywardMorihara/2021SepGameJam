@@ -13,41 +13,45 @@ extents = Vector2( 270, 1 )
 script = ExtResource( 1 )
 starting_health = 1000.0
 
-[node name="RightWall" type="StaticBody2D" parent="." groups=[
+[node name="RightWall" type="RigidBody2D" parent="." groups=[
 "walls",
 ]]
 position = Vector2( 630, 540 )
+mode = 1
 
 [node name="RightWallCollisionShape" type="CollisionShape2D" parent="RightWall"]
 shape = SubResource( 1 )
 
-[node name="LeftWall" type="StaticBody2D" parent="." groups=[
+[node name="LeftWall" type="RigidBody2D" parent="." groups=[
 "walls",
 ]]
 position = Vector2( 90, 540 )
+mode = 1
 
 [node name="LeftWallCollisionShape" type="CollisionShape2D" parent="LeftWall"]
 shape = SubResource( 1 )
 
-[node name="LowerWall" type="StaticBody2D" parent="." groups=[
+[node name="LowerWall" type="RigidBody2D" parent="." groups=[
 "walls",
 ]]
 position = Vector2( 360, 945 )
+mode = 1
 
 [node name="LowerWallCollisionShape" type="CollisionShape2D" parent="LowerWall"]
 shape = SubResource( 2 )
 
-[node name="UpperWall" type="StaticBody2D" parent="." groups=[
+[node name="UpperWall" type="RigidBody2D" parent="." groups=[
 "walls",
 ]]
 position = Vector2( 360, 135 )
+mode = 1
 
 [node name="UpperWallCollisionShape" type="CollisionShape2D" parent="UpperWall"]
 shape = SubResource( 2 )
 
 [node name="HealthLabel" type="RichTextLabel" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 100.0
+margin_bottom = 50.0
 text = "100"
 script = ExtResource( 2 )
 __meta__ = {
