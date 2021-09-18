@@ -4,6 +4,8 @@
 [ext_resource path="res://menu/CreatureSelectionOption.gd" type="Script" id=2]
 
 [node name="HBoxContainer" type="HBoxContainer"]
+margin_left = 5.0
+margin_top = 5.0
 margin_right = 720.0
 margin_bottom = 135.0
 rect_min_size = Vector2( 720, 135 )
@@ -33,25 +35,26 @@ text = "He smol"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_left = 486.0
-margin_right = 506.0
+margin_right = 536.0
 margin_bottom = 135.0
 
 [node name="PlusButton" type="Button" parent="VBoxContainer"]
-margin_right = 20.0
-margin_bottom = 20.0
+margin_right = 50.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 50, 35 )
 text = "+"
 
 [node name="Count" type="RichTextLabel" parent="VBoxContainer"]
-margin_top = 24.0
-margin_right = 20.0
-margin_bottom = 39.0
-rect_min_size = Vector2( 10, 15 )
-text = "0"
+margin_top = 39.0
+margin_right = 50.0
+margin_bottom = 74.0
+rect_min_size = Vector2( 10, 35 )
 
 [node name="MinusButton" type="Button" parent="VBoxContainer"]
-margin_top = 43.0
-margin_right = 20.0
-margin_bottom = 63.0
+margin_top = 78.0
+margin_right = 50.0
+margin_bottom = 113.0
+rect_min_size = Vector2( 50, 35 )
 text = "-"
 
 [connection signal="pressed" from="VBoxContainer/PlusButton" to="." method="_on_PlusButton_pressed"]
