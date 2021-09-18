@@ -1,12 +1,5 @@
 extends Node2D
 
-const CREATURE_SMALL = preload("res://game/creatures/CreatureSmall.tscn")
-const CREATURE_LARGE = preload("res://game/creatures/CreatureLarge.tscn")
-const CREATURE_X = preload("res://game/creatures/CreatureX.tscn")
-
-var num_of_creature_small : int = 10
-var num_of_creature_large : int = 5
-var num_of_creature_x : int = 0
 
 enum GameState {PLAYING, WON}
 var current_state = GameState.PLAYING
@@ -49,9 +42,10 @@ func _reset_game():
 	$MainMenuButton.hide()
 	$Beaker.current_health = $Beaker.starting_health
 	get_tree().call_group("creatures", "queue_free")
-	_create_creatures(CREATURE_SMALL, num_of_creature_small)		
-	_create_creatures(CREATURE_LARGE, num_of_creature_large)
-	_create_creatures(CREATURE_X, num_of_creature_x)
+	for creature_scene_name in Global.creatures.keys():
+		var creature_scene = load("res://game/creatures/%s" % creature_scene_name)
+		var creature_count = Global.creatures.get(creature_scene_name).get("count")
+		_create_creatures(creature_scene, creature_count)
 		
 		
 func _handle_creature_wall_collision(damage):
