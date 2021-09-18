@@ -1,7 +1,7 @@
 extends Node2D
 
 
-enum GameState {PLAYING, WON}
+enum GameState {PLAYING, WON, LOST}
 var current_state = GameState.PLAYING
 
 
@@ -16,6 +16,9 @@ func _process(delta):
 				current_state = GameState.WON
 		GameState.WON:
 			_win()
+		GameState.LOST:
+			_lose()
+	$TimerLabel.text = String(stepify($Timer.time_left, 0.01))
 
 
 func _create_creatures(creature_scene, number : int):
@@ -29,6 +32,14 @@ func _create_creatures(creature_scene, number : int):
 func _win():
 	$Message.visible = true
 	$Message.text = "You won!"
+	$RetryButton.show()
+	$ReselectButton.show()
+	$MainMenuButton.show()
+	
+
+func _lose():
+	$Message.visible = true
+	$Message.text = "You lose!"
 	$RetryButton.show()
 	$ReselectButton.show()
 	$MainMenuButton.show()
@@ -46,6 +57,7 @@ func _reset_game():
 		var creature_scene = load("res://game/creatures/%s" % creature_scene_name)
 		var creature_count = Global.creatures.get(creature_scene_name).get("count")
 		_create_creatures(creature_scene, creature_count)
+	$Timer.start()
 		
 		
 func _handle_creature_wall_collision(damage):
@@ -53,6 +65,8 @@ func _handle_creature_wall_collision(damage):
 		GameState.PLAYING:
 			$Beaker.apply_damage(damage)
 		GameState.WON:
+			pass
+		GameState.LOST:
 			pass
 
 
@@ -66,3 +80,7 @@ func _on_ReselectButton_pressed():
 
 func _on_MainMenuButton_pressed():
 	get_tree().change_scene("res://menu/MainMenu.tscn")
+
+
+func _on_Timer_timeout():
+	current_state = GameState.LOST
