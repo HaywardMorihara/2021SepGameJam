@@ -1,14 +1,14 @@
 extends Node2D
 
-export var starting_health : float = 100.0
+export var starting_health : float
 
-var current_health : float = 100
+var current_health : float
 
 
 func _ready():
-	pass # Replace with function body.
-
-
+	pass
+	
+	
 func _process(delta):
 	$HealthLabel.set_health(current_health)
 

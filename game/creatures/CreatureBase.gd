@@ -54,4 +54,6 @@ func _on_Creature_body_entered(body):
 	# TODO Check if actually the wall
 #	print("Collision: %s" % body)
 	if body.is_in_group("walls"):
-		emit_signal("creature_wall_collision", 1.0)
+		var damage : float = self.mass * self.linear_velocity.length() / 1000
+		print("Damage: %s from creature %s" % [String(damage), self.get_filename()])
+		emit_signal("creature_wall_collision", damage)

@@ -6,7 +6,7 @@ var creatures = {
 	"CreatureSmall.tscn": {
 		"name": "Smol",
 		"description": "He smol. Moves fast, but doesn't do much damage.",
-		"count": 10
+		"count": 0
 	},
 	"CreatureLarge.tscn": {
 		"name": "Big Boi",
