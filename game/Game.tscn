@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://game/Game.gd" type="Script" id=1]
 [ext_resource path="res://game/beaker/Beaker.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Text.tscn" type="PackedScene" id=3]
+[ext_resource path="res://game/ShakeCamera2D.gd" type="Script" id=4]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
@@ -63,6 +64,12 @@ margin_bottom = 105.166
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
+
+[node name="ShakeCamera2D" type="Camera2D" parent="."]
+position = Vector2( 360, 540 )
+rotating = true
+current = true
+script = ExtResource( 4 )
 
 [connection signal="pressed" from="RetryButton" to="." method="_on_RetryButton_pressed"]
 [connection signal="pressed" from="ReselectButton" to="." method="_on_ReselectButton_pressed"]
