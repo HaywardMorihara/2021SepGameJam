@@ -21,9 +21,13 @@ __meta__ = {
 
 [node name="Title" type="RichTextLabel" parent="TitleSection"]
 margin_right = 720.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 720, 50 )
-text = "What mixture of creatures will break the beaker?"
+margin_bottom = 100.0
+rect_min_size = Vector2( 720, 100 )
+text = "These creatures love to move around. When they bump into walls, they damage them.
+
+Your objective: BREAK THE BEAKER.
+
+Hint: Each creature has unique properties. When they bump into each other, they react in different ways."
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -31,9 +35,10 @@ __meta__ = {
 [node name="CreaturesLeftLabel" parent="TitleSection" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 54.0
+margin_top = 104.0
 margin_right = 720.0
-margin_bottom = 79.0
+margin_bottom = 139.0
+rect_min_size = Vector2( 50, 35 )
 text = "You can pick %s more creatures"
 
 [node name="CreatureSection" type="VBoxContainer" parent="."]
