@@ -1,10 +1,19 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://game/creatures/CreatureBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game/creatures/physics_materials/CreatureX.tres" type="PhysicsMaterial" id=2]
 [ext_resource path="res://game/creatures/CreatureX.gd" type="Script" id=3]
+[ext_resource path="res://assets/sprites/creature_x.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="CreatureRigidBody2D" instance=ExtResource( 1 )]
 physics_material_override = ExtResource( 2 )
@@ -13,5 +22,8 @@ script = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
+frames = SubResource( 2 )
 
 [connection signal="body_entered" from="." to="." method="_on_CreatureX_body_entered"]

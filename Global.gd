@@ -15,7 +15,7 @@ var creatures = {
 	},
 	"CreatureX.tscn": {
 		"name": "Sticko",
-		"description": "He stick.",
+		"description": "He stick. Which...sometimes causes explosions? It's a feature, not a bug!",
 		"count": 0
 	}
 }
