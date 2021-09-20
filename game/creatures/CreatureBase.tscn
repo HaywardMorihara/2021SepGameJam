@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://game/creatures/CreatureBase.gd" type="Script" id=1]
 [ext_resource path="res://game/creatures/physics_materials/CreatureBase.tres" type="PhysicsMaterial" id=2]
+[ext_resource path="res://assets/sound/creature_bump.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/sound/wall_bump.wav" type="AudioStream" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -17,5 +19,11 @@ speed = 100.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="CreatureBumpAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+
+[node name="WallBumpAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
 
 [connection signal="body_entered" from="." to="." method="_on_Creature_body_entered"]

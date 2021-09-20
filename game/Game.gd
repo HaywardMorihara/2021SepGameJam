@@ -32,7 +32,7 @@ func _create_creatures(creature_scene, number : int):
 func _stop_game():
 	$Timer.paused = true
 	$Message.visible = true
-	$RetryButton.show()
+	$RerunButton.show()
 	$ReselectButton.show()
 	$MainMenuButton.show()
 
@@ -50,7 +50,7 @@ func _lose():
 func _reset_game():
 	current_state = GameState.PLAYING
 	$Message.hide()
-	$RetryButton.hide()
+	$RerunButton.hide()
 	$ReselectButton.hide()
 	$MainMenuButton.hide()
 	$Beaker.current_health = $Beaker.starting_health
@@ -73,7 +73,7 @@ func _handle_creature_wall_collision(damage):
 			pass
 
 
-func _on_RetryButton_pressed():
+func _on_RerunButton_pressed():
 	get_tree().reload_current_scene()
 
 
