@@ -66,7 +66,7 @@ func _handle_creature_wall_collision(damage):
 	match current_state:
 		GameState.PLAYING:
 			$Beaker.apply_damage(damage)
-			$ShakeCamera2D.add_trauma(0.2 * damage)
+			$ShakeCamera2D.add_trauma(0.1)
 		GameState.WON:
 			pass
 		GameState.LOST:
