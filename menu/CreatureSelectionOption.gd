@@ -7,6 +7,10 @@ func init(scene_name : String):
 	var creature_info = Global.creatures.get(self.scene_name)
 	$CreatureName.text = creature_info.get("name")
 	$CreatureDescription.text = creature_info.get("description")
+	var t = AtlasTexture.new()
+	t.atlas = load("res://assets/sprites/creature_small.png")
+	t.region = Rect2(0,0,16,16)
+	$CreatureImageTextureRect.texture = t
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -51,6 +51,7 @@ func _integrate_forces(state):
 
 
 func _on_Creature_body_entered(body):
+	_collision_animation()
 	if body.is_in_group("creatures"):
 		$CreatureBumpAudioStreamPlayer2D.play()
 	if body.is_in_group("walls"):
@@ -58,3 +59,12 @@ func _on_Creature_body_entered(body):
 		var damage : float = self.mass * self.linear_velocity.length() / 1000
 		print("Damage: %s from creature %s" % [String(damage), self.get_filename()])
 		emit_signal("creature_wall_collision", damage)
+
+
+func _collision_animation():
+	$AnimatedSprite.frame = 1
+	$AnimatedSprite/CollisionAnimationTimer.start()
+	
+
+func _on_CollisionAnimationTimer_timeout():
+	$AnimatedSprite.frame = 0

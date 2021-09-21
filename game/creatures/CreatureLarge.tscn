@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://game/creatures/CreatureBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sprites/creature_large.png" type="Texture" id=2]
@@ -6,9 +6,19 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 20.0
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ SubResource( 2 ), SubResource( 3 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -20,5 +30,5 @@ mass = 2.0
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource( 1 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
-frames = SubResource( 2 )
+[node name="AnimatedSprite" parent="." index="1"]
+frames = SubResource( 4 )
