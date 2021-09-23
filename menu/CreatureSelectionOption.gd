@@ -7,9 +7,12 @@ func init(scene_name : String):
 	var creature_info = Global.creatures.get(self.scene_name)
 	$CreatureName.text = creature_info.get("name")
 	$CreatureDescription.text = creature_info.get("description")
-	var t = AtlasTexture.new()
-	t.atlas = load("res://assets/sprites/creature_small.png")
-	t.region = Rect2(0,0,16,16)
+	var sprite_name : String = creature_info.get("sprite_name")
+	var sprite_x : int = creature_info.get("sprite_x")
+	var sprite_y : int = creature_info.get("sprite_y")
+	var t : AtlasTexture = AtlasTexture.new()
+	t.atlas = load("res://assets/sprites/%s" % sprite_name)
+	t.region = Rect2(0, 0, sprite_x, sprite_y)
 	$CreatureImageTextureRect.texture = t
 
 

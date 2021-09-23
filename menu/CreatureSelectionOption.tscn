@@ -17,7 +17,11 @@ __meta__ = {
 [node name="CreatureImageTextureRect" type="TextureRect" parent="."]
 margin_right = 64.0
 margin_bottom = 135.0
+rect_min_size = Vector2( 64, 135 )
+rect_scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
+expand = true
+stretch_mode = 4
 
 [node name="CreatureName" type="RichTextLabel" parent="."]
 margin_left = 68.0
