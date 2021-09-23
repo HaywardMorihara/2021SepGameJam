@@ -32,9 +32,22 @@ var creatures = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	var api_key_file = File.new()
+	api_key_file.open("res://api_key.env", File.READ)
+	var api_key = api_key_file.get_line()
+	api_key_file.close()
+	
+	# https://cyberglads.com/making-cyberglads-8-leaderboard.html
+	# https://escada-games.itch.io/jump3match/devlog/242610/making-a-simple-online-leaderboard-in-godot-with-silentwolf
+	# https://silentwolf.com/
+	SilentWolf.configure({
+		"api_key": api_key,
+		"game_id": "2021SepGameJam",
+		"game_version": "1.0",
+		"log_level": 1
+	})
 
-
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

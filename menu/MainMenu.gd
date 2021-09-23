@@ -8,6 +8,8 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	yield(SilentWolf.Scores.get_high_scores(10), "sw_scores_received")
+	print(SilentWolf.Scores.scores)
 	pass # Replace with function body.
 
 

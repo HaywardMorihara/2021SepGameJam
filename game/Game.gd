@@ -40,6 +40,8 @@ func _win():
 	$Beaker.break_the_beaker()
 	$Message.text = "You won!"
 	_stop_game()
+	$SubmitScore.show()
+	$SubmitScore.init(stepify($Timer.time_left, 0.01))
 	
 
 func _lose():
