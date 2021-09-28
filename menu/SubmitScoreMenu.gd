@@ -20,6 +20,7 @@ func init(score : float):
 
 func _on_SubmitButton_pressed():
 	if $LineEdit.text != '':
+		self.visible = false
 		var score_id = yield(SilentWolf.Scores.persist_score(
 			$LineEdit.text, self.score),
 			"sw_score_posted")

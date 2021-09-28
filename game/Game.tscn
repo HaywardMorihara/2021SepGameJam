@@ -25,10 +25,10 @@ __meta__ = {
 }
 
 [node name="RerunButton" type="Button" parent="."]
-margin_left = 286.424
-margin_top = 687.619
-margin_right = 419.424
-margin_bottom = 707.619
+margin_left = 266.401
+margin_top = 869.157
+margin_right = 399.401
+margin_bottom = 889.157
 text = "Rerun"
 __meta__ = {
 "_edit_group_": true,
@@ -36,10 +36,10 @@ __meta__ = {
 }
 
 [node name="ReselectButton" type="Button" parent="."]
-margin_left = 293.0
-margin_top = 758.0
-margin_right = 419.0
-margin_bottom = 778.0
+margin_left = 266.303
+margin_top = 931.529
+margin_right = 392.303
+margin_bottom = 951.529
 text = "Reselect"
 __meta__ = {
 "_edit_group_": true,
@@ -47,10 +47,10 @@ __meta__ = {
 }
 
 [node name="MainMenuButton" type="Button" parent="."]
-margin_left = 286.48
-margin_top = 822.996
-margin_right = 422.48
-margin_bottom = 842.996
+margin_left = 267.792
+margin_top = 1008.54
+margin_right = 403.792
+margin_bottom = 1028.54
 text = "Main Menu"
 __meta__ = {
 "_edit_group_": true,
@@ -58,10 +58,10 @@ __meta__ = {
 }
 
 [node name="TimerLabel" parent="." instance=ExtResource( 3 )]
-margin_left = 304.632
-margin_top = 80.1663
-margin_right = 354.632
-margin_bottom = 105.166
+margin_left = 327.324
+margin_top = 40.1211
+margin_right = 377.324
+margin_bottom = 65.1211
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
@@ -75,10 +75,11 @@ script = ExtResource( 4 )
 
 [node name="GameOverMenu" parent="." instance=ExtResource( 5 )]
 visible = false
-margin_left = 172.194
-margin_top = 178.868
-margin_right = 532.194
-margin_bottom = 898.868
+margin_left = 162.85
+margin_top = 124.14
+margin_right = 522.85
+margin_bottom = 844.14
+mouse_filter = 2
 
 [connection signal="pressed" from="RerunButton" to="." method="_on_RerunButton_pressed"]
 [connection signal="pressed" from="ReselectButton" to="." method="_on_ReselectButton_pressed"]
