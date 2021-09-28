@@ -29,7 +29,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/silent_wolf/plugin.cfg", "res://addons/silent_wolf/silent_wolf/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/silent_wolf/plugin.cfg" )
 
 [input_devices]
 

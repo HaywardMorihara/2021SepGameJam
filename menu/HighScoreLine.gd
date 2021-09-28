@@ -1,4 +1,4 @@
-extends Control
+extends HBoxContainer
 
 
 # Declare member variables here. Examples:
@@ -11,10 +11,12 @@ func _ready():
 	pass # Replace with function body.
 
 
+func init(rank: int, name: String, score: float):
+	$RankText.text = String(rank)
+	$NameText.text = name
+	$ScoreText.text = String(score)
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-
-
-func _on_StartButton_pressed():
-	get_tree().change_scene("res://menu/CreatureSelectionMenu.tscn")

@@ -18,7 +18,6 @@ __meta__ = {
 margin_right = 64.0
 margin_bottom = 135.0
 rect_min_size = Vector2( 64, 135 )
-rect_scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 4

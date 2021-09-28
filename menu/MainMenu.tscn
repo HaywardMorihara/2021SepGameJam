@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://menu/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://menu/HighScoreMenu.tscn" type="PackedScene" id=2]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -11,18 +12,27 @@ __meta__ = {
 }
 
 [node name="Title" type="RichTextLabel" parent="."]
-margin_left = 203.225
-margin_top = 314.776
-margin_right = 510.225
-margin_bottom = 385.776
+margin_left = 266.188
+margin_top = 132.515
+margin_right = 573.188
+margin_bottom = 203.515
 text = "Break the Beaker
 "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreMenu" parent="." instance=ExtResource( 2 )]
+margin_left = 172.32
+margin_top = 178.947
+margin_right = -187.68
+margin_bottom = -181.052
 
 [node name="StartButton" type="Button" parent="."]
-margin_left = 177.903
-margin_top = 713.196
-margin_right = 479.903
-margin_bottom = 812.196
+margin_left = 201.1
+margin_top = 887.173
+margin_right = 503.1
+margin_bottom = 986.173
 text = "Start"
 __meta__ = {
 "_edit_group_": true

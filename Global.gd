@@ -37,9 +37,6 @@ func _ready():
 	var api_key = api_key_file.get_line()
 	api_key_file.close()
 	
-	# https://cyberglads.com/making-cyberglads-8-leaderboard.html
-	# https://escada-games.itch.io/jump3match/devlog/242610/making-a-simple-online-leaderboard-in-godot-with-silentwolf
-	# https://silentwolf.com/
 	SilentWolf.configure({
 		"api_key": api_key,
 		"game_id": "2021SepGameJam",

@@ -11,7 +11,7 @@ func _ready():
 
 func init(score : float):
 	self.score = score
-	$VBoxContainer/ScoreLabel.text = String(score)
+	$ScoreLabel.text = String(score)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -19,8 +19,8 @@ func init(score : float):
 
 
 func _on_SubmitButton_pressed():
-	if $VBoxContainer/LineEdit.text != '':
+	if $LineEdit.text != '':
 		var score_id = yield(SilentWolf.Scores.persist_score(
-			$VBoxContainer/LineEdit.text, self.score),
+			$LineEdit.text, self.score),
 			"sw_score_posted")
 		print(score_id)

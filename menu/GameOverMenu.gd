@@ -1,4 +1,4 @@
-extends Control
+extends VBoxContainer
 
 
 # Declare member variables here. Examples:
@@ -10,11 +10,9 @@ extends Control
 func _ready():
 	pass # Replace with function body.
 
+func init(score : float):
+	$SubmitScore.init(score)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-
-
-func _on_StartButton_pressed():
-	get_tree().change_scene("res://menu/CreatureSelectionMenu.tscn")
