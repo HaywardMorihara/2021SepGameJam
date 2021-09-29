@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/sound/wall_bump.wav" type="AudioStream" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
+radius = 8.0
 
 [node name="CreatureRigidBody2D" type="RigidBody2D"]
 physics_material_override = ExtResource( 2 )

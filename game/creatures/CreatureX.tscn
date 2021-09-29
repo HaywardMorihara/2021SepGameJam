@@ -6,6 +6,8 @@
 [ext_resource path="res://assets/sprites/creature_x.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
+radius = 8.0
+height = 16.0
 
 [sub_resource type="AtlasTexture" id=2]
 flags = 4

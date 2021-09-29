@@ -22,6 +22,16 @@ mode = 1
 [node name="RightWallCollisionShape" type="CollisionShape2D" parent="RightWall"]
 shape = SubResource( 1 )
 
+[node name="ColorRect" type="ColorRect" parent="RightWall"]
+margin_left = -20.0
+margin_top = -400.0
+margin_right = 20.0
+margin_bottom = 400.0
+color = Color( 0.639216, 0.988235, 0.980392, 0.513726 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="LeftWall" type="RigidBody2D" parent="." groups=[
 "walls",
 ]]
@@ -30,6 +40,16 @@ mode = 1
 
 [node name="LeftWallCollisionShape" type="CollisionShape2D" parent="LeftWall"]
 shape = SubResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="LeftWall"]
+margin_left = -20.0
+margin_top = -400.0
+margin_right = 20.0
+margin_bottom = 400.0
+color = Color( 0.639216, 0.988235, 0.980392, 0.513726 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="LowerWall" type="RigidBody2D" parent="." groups=[
 "walls",
@@ -40,6 +60,16 @@ mode = 1
 [node name="LowerWallCollisionShape" type="CollisionShape2D" parent="LowerWall"]
 shape = SubResource( 2 )
 
+[node name="ColorRect" type="ColorRect" parent="LowerWall"]
+margin_left = -270.0
+margin_top = -20.0
+margin_right = 270.0
+margin_bottom = 20.0
+color = Color( 0.639216, 0.988235, 0.980392, 0.513726 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="UpperWall" type="RigidBody2D" parent="." groups=[
 "walls",
 ]]
@@ -48,6 +78,16 @@ mode = 1
 
 [node name="UpperWallCollisionShape" type="CollisionShape2D" parent="UpperWall"]
 shape = SubResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="UpperWall"]
+margin_left = -270.0
+margin_top = -20.0
+margin_right = 270.0
+margin_bottom = 20.0
+color = Color( 0.639216, 0.988235, 0.980392, 0.513726 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="HealthLabel" type="RichTextLabel" parent="."]
 margin_left = 80.0
