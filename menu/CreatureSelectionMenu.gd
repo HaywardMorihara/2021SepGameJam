@@ -16,7 +16,7 @@ func _process(delta):
 	var current_creature_count = 0
 	for creature_info in Global.creatures.values():
 		current_creature_count += creature_info.get("count")
-	$TitleSection/CreaturesLeftLabel.text = "%s left to pick" % String(Global.MAX_CREATURE_COUNT - current_creature_count)
+	$TitleSection/CreaturesLeftLabel.text = "You can pick %s more creatures:" % String(Global.MAX_CREATURE_COUNT - current_creature_count)
 
 
 func _on_StartButton_pressed():

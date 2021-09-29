@@ -21,7 +21,7 @@ var creatures = {
 	},
 	"CreatureX.tscn": {
 		"name": "Sticko",
-		"description": "He stick. Which...sometimes causes explosions? It's a feature, not a bug!",
+		"description": "He sticks to others. Which...sometimes causes explosions? It's a feature, not a bug!",
 		"count": 0,
 		"sprite_name": "creature_x.png",
 		"sprite_x": 16,

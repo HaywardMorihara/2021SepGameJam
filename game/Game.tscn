@@ -15,9 +15,9 @@ starting_health = 20.0
 [node name="Message" type="RichTextLabel" parent="."]
 visible = false
 margin_left = 222.887
-margin_top = 457.673
+margin_top = 100.0
 margin_right = 504.887
-margin_bottom = 549.673
+margin_bottom = 192.0
 text = "Custom Message"
 __meta__ = {
 "_edit_group_": true,
