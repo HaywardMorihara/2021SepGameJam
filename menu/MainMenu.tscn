@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://menu/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://menu/HighScoreMenu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Text.tscn" type="PackedScene" id=3]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -12,10 +13,10 @@ __meta__ = {
 }
 
 [node name="Title" type="RichTextLabel" parent="."]
-margin_left = 266.188
-margin_top = 132.515
-margin_right = 573.188
-margin_bottom = 203.515
+margin_left = 274.0
+margin_top = 71.0
+margin_right = 402.0
+margin_bottom = 142.0
 text = "Break the Beaker
 "
 __meta__ = {
@@ -29,13 +30,23 @@ margin_right = -187.68
 margin_bottom = -181.052
 
 [node name="StartButton" type="Button" parent="."]
-margin_left = 201.1
-margin_top = 887.173
-margin_right = 503.1
-margin_bottom = 986.173
+margin_left = 182.874
+margin_top = 837.465
+margin_right = 484.874
+margin_bottom = 936.465
 text = "Start"
 __meta__ = {
 "_edit_group_": true
 }
+
+[node name="Credits" parent="." instance=ExtResource( 3 )]
+margin_left = 215.4
+margin_top = 1000.78
+margin_right = -204.6
+margin_bottom = 0.780396
+rect_min_size = Vector2( 200, 80 )
+text = "Credits:
+
+- SilentWolf.com for leaderboard services"
 
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
