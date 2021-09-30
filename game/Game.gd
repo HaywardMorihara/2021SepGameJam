@@ -18,7 +18,7 @@ func _process(delta):
 			_win()
 		GameState.LOST:
 			_lose()
-	$TimerLabel.text = String(stepify($Timer.time_left, 0.01))
+	$CanvasLayer/TimerLabel.text = String(stepify($Timer.time_left, 0.01))
 
 
 func _create_creatures(creature_scene, number : int):
@@ -31,30 +31,30 @@ func _create_creatures(creature_scene, number : int):
 
 func _stop_game():
 	$Timer.paused = true
-	$Message.visible = true
-	$RerunButton.show()
-	$ReselectButton.show()
-	$MainMenuButton.show()
+	$CanvasLayer/Message.visible = true
+	$CanvasLayer/RerunButton.show()
+	$CanvasLayer/ReselectButton.show()
+	$CanvasLayer/MainMenuButton.show()
 
 func _win():
 	$Beaker.break_the_beaker()
-	$Message.text = "You won!"
+	$CanvasLayer/Message.text = "You won!"
 	_stop_game()
-	$GameOverMenu.show()
-	$GameOverMenu.init(stepify($Timer.time_left, 0.01))
+	$CanvasLayer/GameOverMenu.show()
+	$CanvasLayer/GameOverMenu.init(stepify($Timer.time_left, 0.01))
 	
 
 func _lose():
-	$Message.text = "You lose!"
+	$CanvasLayer/Message.text = "You lose!"
 	_stop_game()
 
 
 func _reset_game():
 	current_state = GameState.PLAYING
-	$Message.hide()
-	$RerunButton.hide()
-	$ReselectButton.hide()
-	$MainMenuButton.hide()
+	$CanvasLayer/Message.hide()
+	$CanvasLayer/RerunButton.hide()
+	$CanvasLayer/ReselectButton.hide()
+	$CanvasLayer/MainMenuButton.hide()
 	$Beaker.current_health = $Beaker.starting_health
 	get_tree().call_group("creatures", "queue_free")
 	for creature_scene_name in Global.creatures.keys():
