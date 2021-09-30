@@ -37,7 +37,7 @@ func _game_over():
 	$Beaker.break_the_beaker()
 	_stop_game()
 	$CanvasLayer/GameOverMenu.show()
-	$CanvasLayer/GameOverMenu.init(stepify($Timer.time_left, 0.01))
+	$CanvasLayer/GameOverMenu.init(stepify($Beaker.current_damage, 0.01))
 	
 
 func _reset_game():
