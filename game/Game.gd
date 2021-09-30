@@ -1,7 +1,7 @@
 extends Node2D
 
 
-enum GameState {PLAYING, WON, LOST}
+enum GameState {PLAYING, OVER}
 var current_state = GameState.PLAYING
 
 
@@ -12,12 +12,9 @@ func _ready():
 func _process(delta):
 	match current_state:
 		GameState.PLAYING:
-			if $Beaker.current_health <= 0:
-				current_state = GameState.WON
-		GameState.WON:
-			_win()
-		GameState.LOST:
-			_lose()
+			pass
+		GameState.OVER:
+			_game_over()
 	$CanvasLayer/TimerLabel.text = String(stepify($Timer.time_left, 0.01))
 
 
@@ -36,18 +33,12 @@ func _stop_game():
 	$CanvasLayer/ReselectButton.show()
 	$CanvasLayer/MainMenuButton.show()
 
-func _win():
+func _game_over():
 	$Beaker.break_the_beaker()
-	$CanvasLayer/Message.text = "You won!"
 	_stop_game()
 	$CanvasLayer/GameOverMenu.show()
 	$CanvasLayer/GameOverMenu.init(stepify($Timer.time_left, 0.01))
 	
-
-func _lose():
-	$CanvasLayer/Message.text = "You lose!"
-	_stop_game()
-
 
 func _reset_game():
 	current_state = GameState.PLAYING
@@ -55,7 +46,6 @@ func _reset_game():
 	$CanvasLayer/RerunButton.hide()
 	$CanvasLayer/ReselectButton.hide()
 	$CanvasLayer/MainMenuButton.hide()
-	$Beaker.current_health = $Beaker.starting_health
 	get_tree().call_group("creatures", "queue_free")
 	for creature_scene_name in Global.creatures.keys():
 		var creature_scene = load("res://game/creatures/%s" % creature_scene_name)
@@ -69,9 +59,7 @@ func _handle_creature_wall_collision(damage):
 		GameState.PLAYING:
 			$Beaker.apply_damage(damage)
 			$ShakeCamera2D.add_trauma(0.1)
-		GameState.WON:
-			pass
-		GameState.LOST:
+		GameState.OVER:
 			pass
 
 
@@ -88,4 +76,4 @@ func _on_MainMenuButton_pressed():
 
 
 func _on_Timer_timeout():
-	current_state = GameState.LOST
+	current_state = GameState.OVER

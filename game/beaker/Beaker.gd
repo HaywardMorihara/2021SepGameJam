@@ -1,8 +1,7 @@
 extends Node2D
 
-export var starting_health : float
 
-var current_health : float
+var current_damage : float
 
 
 func _ready():
@@ -10,12 +9,12 @@ func _ready():
 	
 	
 func _process(delta):
-	$HealthLabel.set_health(current_health)
+	$DamageLabel.set_damage(current_damage)
 
 func apply_damage(damage : float):
-	current_health -= damage
-	if current_health < 0:
-		current_health = 0
+	current_damage += damage
+	if current_damage < 0:
+		current_damage = 0
 		
 		
 func break_the_beaker():

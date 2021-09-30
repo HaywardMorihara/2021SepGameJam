@@ -17,8 +17,7 @@ margin_left = 274.0
 margin_top = 71.0
 margin_right = 402.0
 margin_bottom = 142.0
-text = "Break the Walls
-"
+text = "Damage the Walls"
 __meta__ = {
 "_edit_use_anchors_": false
 }

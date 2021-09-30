@@ -10,9 +10,9 @@
 script = ExtResource( 1 )
 
 [node name="Beaker" parent="." instance=ExtResource( 2 )]
-starting_health = 100.0
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
 one_shot = true
 
 [node name="ShakeCamera2D" type="Camera2D" parent="."]
@@ -22,14 +22,6 @@ current = true
 script = ExtResource( 4 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="GameOverMenu" parent="CanvasLayer" instance=ExtResource( 5 )]
-visible = false
-margin_left = 162.85
-margin_top = 124.14
-margin_right = 522.85
-margin_bottom = 844.14
-mouse_filter = 0
 
 [node name="Message" type="RichTextLabel" parent="CanvasLayer"]
 visible = false
@@ -48,6 +40,14 @@ margin_left = 327.324
 margin_top = 40.1211
 margin_right = 377.324
 margin_bottom = 65.1211
+
+[node name="GameOverMenu" parent="CanvasLayer" instance=ExtResource( 5 )]
+visible = false
+margin_left = 162.85
+margin_top = 124.14
+margin_right = 522.85
+margin_bottom = 844.14
+mouse_filter = 0
 
 [node name="RerunButton" type="Button" parent="CanvasLayer"]
 margin_left = 266.401
@@ -79,15 +79,6 @@ margin_bottom = 1028.54
 text = "Main Menu"
 __meta__ = {
 "_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Button" type="Button" parent="CanvasLayer"]
-margin_left = 327.036
-margin_top = 643.393
-margin_right = 339.036
-margin_bottom = 663.393
-__meta__ = {
 "_edit_use_anchors_": false
 }
 

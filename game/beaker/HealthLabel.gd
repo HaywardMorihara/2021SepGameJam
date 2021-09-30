@@ -9,5 +9,5 @@ func _ready():
 #func _process(delta):
 #	self.text = String(health)
 
-func set_health(health : float):
-	self.text = "Wall Health: %s" % String(health)
+func set_damage(damage : float):
+	self.text = "Damage: %s" % String(damage)

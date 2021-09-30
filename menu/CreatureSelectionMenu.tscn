@@ -31,7 +31,7 @@ These creatures zoom around, bumping into each other and the walls.
 
 When they hit the walls, they damage them.
 
-Your objective: BREAK THE WALLS.
+Your objective: DEAL AS MUCH DAMAGE AS YOU CAN TO THE WALLS.
 
 Hint: Each creature has unique properties. When they bump into each other, they react in different ways."
 __meta__ = {
