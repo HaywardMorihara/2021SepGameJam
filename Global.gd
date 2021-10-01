@@ -6,7 +6,7 @@ var creatures = {
 	"CreatureSmall.tscn": {
 		"name": "Smol",
 		"description": "He smol. Moves fast, but doesn't do much damage.",
-		"count": 10,
+		"count": 0,
 		"sprite_name": "creature_small.png",
 		"sprite_x": 16,
 		"sprite_y": 16
