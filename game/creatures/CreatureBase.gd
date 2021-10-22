@@ -71,7 +71,6 @@ func _on_Creature_body_entered(body):
 		wall_particles.position = local_collision_pos
 		wall_particles.emitting = true
 		get_tree().get_root().add_child(wall_particles)
-		# TODO Destroy on completion
 
 
 func _collision_animation():
